@@ -107,6 +107,8 @@ public class Main_2_home extends Fragment {
 //        Button btnlist = view.findViewById(R.id.btnlist);
         btnadd.setOnClickListener(btnAddonClick);
 //        btnlist.setOnClickListener(btnListonClick);
+        Button btnClear=view.findViewById(R.id.button11_Clear);
+        btnClear.setOnClickListener(btnClearonClick);
 
         return view;
     }
@@ -174,6 +176,21 @@ public class Main_2_home extends Fragment {
 //            }
 //        }
 //    };
+    private final View.OnClickListener btnClearonClick = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            clearAll();
+        }
+    };
+    private void clearAll() {//清空目前所選以及所有editText
+        mButton10.setText("");
+        mMoney_nt.setText("");
+        mCaption.setText("");
+        sp.setSelection(0);
+        sp2.setSelection(0);
+        mNote.setText("");
+    }
     //第一個下拉類別的監看
     private AdapterView.OnItemSelectedListener selectListener = new AdapterView.OnItemSelectedListener() {
         public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
